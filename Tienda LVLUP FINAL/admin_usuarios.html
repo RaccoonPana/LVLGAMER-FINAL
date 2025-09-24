@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Usuarios</title>
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><img src="img/level-up-icono.jpg" alt="Level-Up Gamer" width="150"></h2>
+    <ul>
+      <li><a href="admin_index.html">🏠 Panel</a></li>
+      <li><a href="admin_productos.html">🎮 Productos</a></li>
+      <li><a href="admin_usuarios.html">👥 Usuarios</a></li>
+    </ul>
+    <hr>
+    <ul>
+      <li><a href="index.html">🌐 Sitio Web</a></li>
+    </ul>
+  </nav>
+
+  <main class="panel">
+    <div class="grid-1">
+      <section class="card">
+        <h2>Listado de Usuarios</h2>
+        <div class="toolbar">
+          <button class="btn" onclick="resetFormularioUsuario()">➕ Nuevo Usuario</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>RUN</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Correo</th>
+                <th>Tipo</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-usuarios"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Formulario Usuario</h2>
+        <form id="form-usuario" onsubmit="guardarUsuario(event)">
+          <input type="hidden" id="user-index" value="">
+          <label for="user-run">RUN (7-9, sin puntos ni guion)</label>
+          <input id="user-run" minlength="7" maxlength="9" required placeholder="19011022K">
+
+          <label for="user-nombre">Nombre (máx 50)</label>
+          <input id="user-nombre" maxlength="50" required>
+
+          <label for="user-apellidos">Apellidos (máx 100)</label>
+          <input id="user-apellidos" maxlength="100" required>
+
+          <label for="user-correo">Correo</label>
+          <input id="user-correo" type="email" maxlength="100" required placeholder="nombre@duoc.cl">
+
+          <div class="grid">
+            <div>
+              <label for="user-fecha">Fecha Nacimiento (opcional)</label>
+              <input id="user-fecha" type="date">
+            </div>
+            <div>
+              <label for="user-tipo">Tipo Usuario</label>
+              <select id="user-tipo" required>
+                <option value="">Seleccione...</option>
+                <option>Administrador</option>
+                <option>Cliente</option>
+                <option>Vendedor</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid">
+            <div>
+              <label for="user-region">Región</label>
+              <select id="user-region" required onchange="cargarComunas()">
+                <option value="">Seleccione...</option>
+              </select>
+            </div>
+            <div>
+              <label for="user-comuna">Comuna</label>
+              <select id="user-comuna" required>
+                <option value="">Seleccione...</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="user-direccion">Dirección (máx 300)</label>
+          <input id="user-direccion" maxlength="300" required>
+
+          <div class="actions-row">
+            <button type="submit" class="btn">💾 Guardar</button>
+            <button type="button" class="btn danger" onclick="eliminarUsuarioActual()">🗑️ Eliminar</button>
+            <button type="button" class="btn sec" onclick="resetFormularioUsuario()">↩️ Limpiar</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/admin_guard.js"></script>
+  <script src="js/admin_usuarios.js"></script>
+</body>
+</html>

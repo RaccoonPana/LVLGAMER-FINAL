@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Productos</title>
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <nav class="sidebar">
+    <h2><img src="img/level-up-icono.jpg" alt="Level-Up Gamer" width="150"></h2>
+    <ul>
+      <li><a href="admin_index.html">🏠 Panel</a></li>
+      <li><a href="admin_productos.html">🎮 Productos</a></li>
+      <li><a href="admin_usuarios.html">👥 Usuarios</a></li>
+    </ul>
+    <hr>
+    <ul>
+      <li><a href="index.html">🌐 Sitio Web</a></li>
+    </ul>
+  </nav>
+
+  <main class="panel">
+    <div class="grid">
+      <section class="card">
+        <h2>Listado de Productos</h2>
+        <div class="toolbar">
+          <button class="btn" onclick="resetFormularioProducto()">➕ Nuevo Producto</button>
+          <button class="btn sec" onclick="exportarProductos()">⬇️ Exportar</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-productos"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Formulario Producto</h2>
+        <form id="form-producto" onsubmit="guardarProducto(event)">
+          <input type="hidden" id="prod-index" value="">
+          <label for="prod-codigo">Código (min 3)</label>
+          <input id="prod-codigo" minlength="3" required placeholder="ej: P-1001">
+
+          <label for="prod-nombre">Nombre (máx 100)</label>
+          <input id="prod-nombre" maxlength="100" required placeholder="ej: Teclado Mecánico RGB">
+
+          <label for="prod-descripcion">Descripción (opcional, máx 500)</label>
+          <textarea id="prod-descripcion" maxlength="500" rows="3" placeholder="Descripción del producto..."></textarea>
+
+          <div class="grid">
+            <div>
+              <label for="prod-precio">Precio (≥ 0)</label>
+              <input id="prod-precio" type="number" min="0" step="0.01" required>
+            </div>
+            <div>
+              <label for="prod-stock">Stock (entero ≥ 0)</label>
+              <input id="prod-stock" type="number" min="0" step="1" required>
+            </div>
+          </div>
+
+          <div class="grid">
+            <div>
+              <label for="prod-stockcrit">Stock Crítico (opcional, entero ≥ 0)</label>
+              <input id="prod-stockcrit" type="number" min="0" step="1">
+            </div>
+            <div>
+              <label for="prod-categoria">Categoría</label>
+              <select id="prod-categoria" required>
+                <option value="">Seleccione...</option>
+                <option>Consolas</option>
+                <option>PC Gaming</option>
+                <option>Perifericos</option>
+                <option>Sillas</option>
+                <option>Accesorios</option>
+                <option>Juegos de Mesa</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="prod-imagen">URL Imagen (opcional)</label>
+          <input id="prod-imagen" type="url" placeholder="img/teclado.jpg o https://...">
+
+          <div class="actions-row">
+            <button type="submit" class="btn">💾 Guardar</button>
+            <button type="button" class="btn danger" onclick="eliminarProductoActual()">🗑️ Eliminar</button>
+            <button type="button" class="btn sec" onclick="resetFormularioProducto()">↩️ Limpiar</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/admin_guard.js"></script>
+  <script src="js/admin_productos.js"></script>
+</body>
+</html>

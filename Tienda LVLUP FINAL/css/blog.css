@@ -1,4 +1,17 @@
-/* BLOG STYLES */
+/* ======================================================================
+   File: blog.css
+   Purpose: Estilos para la sección de Blog (listado y detalle de artículos).
+   Estructura:
+   - Hero del Blog (.hero-blog)
+   - Listado principal (.blog-container, .blog-post, .blog-grid)
+   - PostDestacado (.blog-post.destacado)
+   - Newsletter (.newsletter-blog)
+   - Blog Detalle (breadcrumb, encabezado, contenidos, relacionados)
+   - Responsive y utilidades
+   Notas: Usa variables globales de colores y fuentes desde css/estilo.css
+   ====================================================================== */
+
+/* Hero del Blog */
 .hero-blog {
     background: linear-gradient(135deg, #111, #222);
     padding: 80px 20px 60px;

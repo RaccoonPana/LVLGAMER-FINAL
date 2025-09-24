@@ -1,0 +1,14 @@
+/* ======================================================================
+   File: detalle.css
+   Purpose: Estilos para la página de detalle de producto.
+   Secciones: Wrapper de detalle, imagen, info, acciones y botones.
+   Notas: Colores/fuentes desde css/estilo.css
+   ====================================================================== */
+.detalle-wrap{max-width:1100px;margin:20px auto;padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.detalle-img img{width:100%;border-radius:12px;border:2px solid #0ea5e9}
+.detalle-info h1{margin:0 0 10px 0}
+.detalle-info .categoria{color:#93c5fd}
+.detalle-info .precio{font-size:22px;color:#39ff14;margin:10px 0}
+.acciones{display:flex;gap:12px;margin-top:12px}
+.btn{padding:12px 16px;border-radius:8px;border:1px solid #334155;background:#0ea5e9;color:#fff;cursor:pointer}
+.btn.sec{background:#10b981}

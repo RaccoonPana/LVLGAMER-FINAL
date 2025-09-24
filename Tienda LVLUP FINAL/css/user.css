@@ -1,3 +1,9 @@
+/* ======================================================================
+   File: user.css
+   Purpose: Estilos genéricos para vistas auxiliares (tablas, botones,
+            modales y fondos oscurecidos).
+   Secciones: Base tipográfica, botones, tablas, modales y overlays.
+   ====================================================================== */
 /* Estilo general */
 body {
     font-family: var(--font-body);

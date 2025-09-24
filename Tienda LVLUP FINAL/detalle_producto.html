@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle del Producto - Level-Up Gamer</title>
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="css/productos.css">
+  <link rel="stylesheet" href="css/detalle.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="contenedor-nav">
+        <div class="nav-logo" id="logo">
+          <img src="img/level-up-icono.jpg" alt="Level-Up Gamer">
+          <h1>Level-Up Gamer</h1>
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+          <li class="nav-item"><a href="productos.html" class="nav-link">Productos</a></li>
+          <li class="nav-item"><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+          <li class="nav-item"><a href="blogs.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contacto.html" class="nav-link">Contacto</a></li>
+          <li class="nav-item"><a href="admin_index.html" class="nav-link">Admin</a></li>
+          <li class="nav-item"><a href="carrito.html" class="nav-link">Carrito (<span id="cart-count">0</span>)</a></li>
+        </ul>
+        <div class="nav-btn">
+          <a href="login_register.html" class="btn-login_register">Login / Registro</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="detalle-wrap" id="detalle-producto">
+      <!-- Renderizado dinámico por JS -->
+      <div class="detalle-img"><img src="img/placeholder.jpg" alt="Producto"></div>
+      <div class="detalle-info">
+        <h1>Cargando...</h1>
+        <p class="categoria"></p>
+        <p class="descripcion"></p>
+        <p class="precio"></p>
+        <p class="stock"></p>
+        <div class="acciones">
+          <button class="btn" id="btn-agregar">🎮 Agregar al Carrito</button>
+          <a class="btn sec" href="productos.html">← Volver</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2024 Level-Up Gamer - Todos los derechos reservados</p>
+  </footer>
+
+  <script src="js/carrito.js"></script>
+  <script src="js/detalle_producto.js"></script>
+</body>
+</html>

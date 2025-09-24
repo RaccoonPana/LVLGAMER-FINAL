@@ -15,7 +15,7 @@
         <nav class="navbar">
             <div class="contenedor-nav">
                 <div class="nav-logo" id="logo">
-                    <img src="img/logo-levelup.png" alt="Level-Up Gamer">
+                    <img src="img/level-up-icono.jpg" alt="Level-Up Gamer">
                     <h1>Level-Up Gamer</h1>
                 </div>
                 
@@ -36,6 +36,9 @@
                         <a href="contacto.html" class="nav-link">Contacto</a>
                     </li>
                     <li class="nav-item">
+                        <a href="admin_index.html" class="nav-link">Admin</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="carrito.html" class="nav-link">Carrito (<span id="cart-count">0</span>)</a>
                     </li>
                 </ul>
@@ -43,22 +46,21 @@
                 <div class="nav-btn">
                     <a href="login_register.html" class="btn-login_register">Login / Registro</a>
                 </div>
-            </div>
         </nav>
-    </header>
 
     <main>
         <section class="galeria">
-            <h2>🎯 Catálogo de Productos</h2>
+            <h2> Catálogo de Productos</h2>
             
             <!-- Filtros por categoría -->
             <div class="filtros">
-                <button class="btn-filtro active" onclick="filtrarProductos('todos')">Todos los Productos</button>
-                <button class="btn-filtro" onclick="filtrarProductos('Consolas')">🎮 Consolas</button>
-                <button class="btn-filtro" onclick="filtrarProductos('PC Gaming')">💻 PC Gaming</button>
-                <button class="btn-filtro" onclick="filtrarProductos('Perifericos')">⌨️ Periféricos</button>
-                <button class="btn-filtro" onclick="filtrarProductos('Sillas')">🪑 Sillas Gamer</button>
-                <button class="btn-filtro" onclick="filtrarProductos('Accesorios')">🎧 Accesorios</button>
+                <button class="btn-filtro active" data-categoria="todos" onclick="filtrarProductos('todos', this)">Todos los Productos</button>
+                <button class="btn-filtro" data-categoria="Consolas" onclick="filtrarProductos('Consolas', this)"> Consolas</button>
+                <button class="btn-filtro" data-categoria="PC Gaming" onclick="filtrarProductos('PC Gaming', this)"> PC Gaming</button>
+                <button class="btn-filtro" data-categoria="Perifericos" onclick="filtrarProductos('Perifericos', this)"> Periféricos</button>
+                <button class="btn-filtro" data-categoria="Sillas" onclick="filtrarProductos('Sillas', this)"> Sillas Gamer</button>
+                <button class="btn-filtro" data-categoria="Accesorios" onclick="filtrarProductos('Accesorios', this)"> Accesorios</button>
+                <button class="btn-filtro" data-categoria="Juegos de Mesa" onclick="filtrarProductos('Juegos de Mesa', this)"> Juegos de Mesa</button>
             </div>
             
             <div class="contenedor" id="lista-productos">
@@ -66,16 +68,18 @@
                 <div class="cargando">Cargando productos...</div>
             </div>
         </section>
-
+        
         <!-- Resumen del Carrito -->
         <section class="carrito">
             <div class="resumen-carrito">
-                <h3>🛒 Resumen del Carrito</h3>
+                <h3> Resumen del Carrito</h3>
                 <p>Items: <span id="contador-carrito">0</span></p>
                 <p>Total: $<span id="total-carrito">0</span> CLP</p>
                 <a href="carrito.html" class="btn-ver-carrito">Ver Carrito</a>
+                <button class="btn-vaciar" onclick="vaciarCarritoLS()" style="margin-left:10px"> Vaciar Carrito</button>
             </div>
         </section>
+        
     </main>
 
     <footer>
@@ -87,16 +91,14 @@
     <script src="js/carrito.js"></script>
     
     <script>
-        // Debug inicial
         console.log('Página productos iniciada');
-        debugProductos();
     </script>
+    
     <!-- Al final del body, después de los scripts -->
 <script>
     // Debug inicial
     console.log('=== PÁGINA PRODUCTOS CARGADA ===');
     debugCarrito();
-    
     // Agregar evento para probar el carrito
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('btn-agregar')) {

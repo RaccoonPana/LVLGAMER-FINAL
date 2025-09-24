@@ -1,3 +1,13 @@
+/**
+ * carrito.js
+ * Propósito: gestionar el carrito en LocalStorage y la UI asociada.
+ * Funciones clave:
+ * - agregarAlCarrito(id): agrega o incrementa producto en el carrito.
+ * - actualizarContadorCarrito(): actualiza contadores (navbar y resumen en productos).
+ * - vaciarCarritoLS(): vacía el carrito desde cualquier página.
+ * - debugCarrito(): utilitaria para depuración.
+ * Notas: usa la lista de productos persistida en `localStorage.productos`.
+ */
 class ProductoCarrito {
     constructor(id, nombre, precio, imagen, categoria) {
         this.id = id;
@@ -97,7 +107,6 @@ function actualizarContadorCarrito() {
     
     if (contadorCarrito) {
         contadorCarrito.textContent = totalItems;
-        console.log('Contador actualizado en productos:', totalItems);
     }
     if (totalCarrito) {
         totalCarrito.textContent = totalPrecio.toLocaleString();
@@ -109,12 +118,27 @@ function actualizarContadorCarrito() {
     }
 }
 
+// Vaciar carrito desde cualquier página
+function vaciarCarritoLS() {
+    const carritoStorage = localStorage.getItem("carrito");
+    const carrito = carritoStorage ? JSON.parse(carritoStorage) : [];
+    if (carrito.length === 0) {
+        alert("El carrito ya está vacío");
+        return;
+    }
+    if (!confirm("¿Estás seguro de vaciar todo el carrito?")) return;
+    localStorage.setItem("carrito", JSON.stringify([]));
+    actualizarContadorCarrito();
+    if (typeof cargarCarrito === 'function') {
+        try { cargarCarrito(); } catch (e) {}
+    }
+}
+
 // Función para debug del carrito
 function debugCarrito() {
     console.log('=== DEBUG CARRITO ===');
     console.log('localStorage carrito:', localStorage.getItem("carrito"));
     console.log('localStorage productos:', localStorage.getItem("productos"));
-    
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     console.log('Carrito parseado:', carrito);
     console.log('Número de items:', carrito.length);

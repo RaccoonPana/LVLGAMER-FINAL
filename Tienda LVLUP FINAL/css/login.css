@@ -1,3 +1,9 @@
+/* ======================================================================
+   File: login.css
+   Purpose: Estilos para la página de Login/Registro, con toggle de vistas
+            y componentes de formulario.
+   Secciones: Contenedor, cambio de formularios, inputs, enlaces y botón.
+   ====================================================================== */
 @import url(estilo.css);
 
 *{

@@ -1,4 +1,17 @@
-/* CARRITO STYLES */
+/* ======================================================================
+   File: carrito.css
+   Purpose: Estilos de la página Carrito (estructura, tabla, resumen y
+            botones de acción) con enfoque responsive.
+   Secciones:
+   - Estructura general de la sección
+   - Tabla del carrito y celdas específicas
+   - Resumen del pedido y botones principales
+   - Responsive (768px, 480px)
+   - Animaciones y mejoras de hover/scroll
+   Notas: Usa variables globales de colores/fuentes desde css/estilo.css
+   ====================================================================== */
+
+/* Estructura general de la sección */
 .seccion-carrito {
     max-width: 1200px;
     margin: 100px auto 40px;

@@ -15,7 +15,7 @@
         <nav class="navbar">
             <div class="contenedor-nav">
                 <div class="nav-logo" id="logo">
-                    <img src="img/logo-levelup.png" alt="Level-Up Gamer">
+                    <img src="img/level-up-icono.jpg" alt="Level-Up Gamer">
                     <h1>Level-Up Gamer</h1>
                 </div>
                 
@@ -38,8 +38,6 @@
                 </ul>
                 
                 <div class="nav-btn">
-                    <a href="carrito.html" class="btn-apadrina">Ver Carrito</a>
-                </div>
             </div>
         </nav>
     </header>
@@ -50,12 +48,12 @@
 
             <!-- Login -->
             <div class="formulario inicio-sesion">
-                <header>🎮 Iniciar Sesión</header>
-                <form action="#">
-                    <input type="text" placeholder="Correo electrónico" required>
-                    <input type="password" placeholder="Contraseña" required>
+                <header> Iniciar Sesión</header>
+                <form onsubmit="return false;">
+                    <input id="login-email" type="email" placeholder="Correo electrónico" required>
+                    <input id="login-pass" type="password" placeholder="Contraseña" required>
                     <a href="#">¿Olvidaste tu contraseña?</a>
-                    <input type="button" class="boton" value="Ingresar al Nivel">
+                    <input type="button" class="boton" value="Ingresar al Nivel" onclick="login()">
                 </form>
                 <div class="texto-registro">
                     <span>¿Nuevo en Level-Up Gamer?
@@ -66,12 +64,12 @@
 
             <!-- Registro -->
             <div class="formulario registro">
-                <header>🚀 Crear Cuenta</header>
-                <form action="#">
-                    <input type="text" placeholder="Correo electrónico" required>
-                    <input type="password" placeholder="Crear contraseña" required>
-                    <input type="password" placeholder="Confirmar contraseña" required>
-                    <input type="button" class="boton" value="Subir de Nivel">
+                <header> Crear Cuenta</header>
+                <form onsubmit="return false;">
+                    <input id="reg-email" type="email" placeholder="Correo electrónico" required>
+                    <input id="reg-pass" type="password" placeholder="Crear contraseña (4-10)" minlength="4" maxlength="10" required>
+                    <input id="reg-pass2" type="password" placeholder="Confirmar contraseña" minlength="4" maxlength="10" required>
+                    <input type="button" class="boton" value="Subir de Nivel" onclick="registerUser()">
                 </form>
                 <div class="texto-registro">
                     <span>¿Ya tienes una cuenta?
@@ -79,11 +77,21 @@
                     </span>
                 </div>
             </div>
+
+            <!-- Claves de ejemplo -->
+            <div class="formulario" style="margin-top: 12px;">
+                <header>🔑 Claves de ejemplo</header>
+                <div style="font-size:14px;color:#cbd5e1;line-height:1.6">
+                    <p><strong>Admin</strong>: admin@duoc.cl (o admin@duoc,cl) / <strong>admin</strong></p>
+                    <p><strong>Usuario</strong>: prueba@gmail.com / <strong>prueba 123</strong></p>
+                </div>
+            </div>
         </div>
     </main>
 
     <footer>
-        <p>© 2024 Level-Up Gamer - Proyecto DSY1104</p>
+        <p> 2024 Level-Up Gamer - Proyecto DSY1104</p>
     </footer>
+    <script src="js/auth.js"></script>
 </body>
 </html>

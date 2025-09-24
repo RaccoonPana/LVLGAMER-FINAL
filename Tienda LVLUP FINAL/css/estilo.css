@@ -1,3 +1,14 @@
+/* ======================================================================
+   File: estilo.css
+   Purpose: Estilos globales del sitio. Define variables (colores, fuentes),
+            reset base, layout general, navbar, carruseles y secciones
+            reutilizables.
+   Notas:
+   - Variables CSS en :root controlan la paleta y tipografías.
+   - Navbar fijo con contenedor central `.contenedor-nav`.
+   - Las páginas específicas extienden desde este archivo.
+   ====================================================================== */
+
 /* --- FUENTES LEVEL-UP GAMER --- */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap');
 
@@ -118,7 +129,7 @@ footer {
     gap: 15px;
 }
 
-.btn-apadrina {
+.btn-primario {
     background: linear-gradient(135deg, var(--accent-blue), #0066CC);
     color: white;
     border: none;
@@ -133,12 +144,11 @@ footer {
     letter-spacing: 1px;
 }
 
-.btn-apadrina:hover {
+.btn-primario:hover {
     background: linear-gradient(135deg, #0066CC, #004499);
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(30, 144, 255, 0.4);
 }
-
 .btn-login_register {
     background: transparent;
     color: var(--accent-blue);
