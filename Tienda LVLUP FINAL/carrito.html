@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Level-Up Gamer</title>
+
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/carrito.css">
+</head>
+<body onload="cargarCarrito()">
+    <header>
+        <nav class="navbar">
+            <div class="contenedor-nav">
+                <div class="nav-logo" id="logo">
+                    <img src="img/logo-levelup.png" alt="Level-Up Gamer">
+                    <h1>Level-Up Gamer</h1>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="productos.html" class="nav-link">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="nosotros.html" class="nav-link">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blogs.html" class="nav-link">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contacto.html" class="nav-link">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="carrito.html" class="nav-link">Carrito (<span id="cart-count">0</span>)</a>
+                    </li>
+                </ul>
+                
+                <div class="nav-btn">
+                    <a href="login_register.html" class="btn-login_register">Login / Registro</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="seccion-carrito">
+            <h1>🛒 Tu Carrito de Compras</h1>
+            <hr>
+            
+            <div id="detalle-carrito" class="contenedor-carrito">
+                <!-- Contenido del carrito cargado por JavaScript -->
+            </div>
+
+            <!-- Resumen del pedido -->
+            <div class="resumen-pedido" id="resumen-pedido">
+                <h3>📋 Resumen del Pedido</h3>
+                <div class="detalles-resumen">
+                    <div class="fila-resumen">
+                        <span>Subtotal:</span>
+                        <span>$<span id="subtotal">0</span> CLP</span>
+                    </div>
+                    <div class="fila-resumen">
+                        <span>Envío:</span>
+                        <span>$<span id="envio">0</span> CLP</span>
+                    </div>
+                    <div class="fila-resumen total">
+                        <span>Total:</span>
+                        <span>$<span id="total-final">0</span> CLP</span>
+                    </div>
+                </div>
+                <div class="botones-accion">
+                    <button onclick="procesarPago()" class="btn-pagar">🎮 Proceder al Pago</button>
+                    <button onclick="seguirComprando()" class="btn-seguir">← Seguir Comprando</button>
+                    <button onclick="vaciarCarrito()" class="btn-vaciar">🗑️ Vaciar Carrito</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Level-Up Gamer - Proyecto DSY1104</p>
+    </footer>
+
+    <script>
+        // Variables globales
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+         
+        function eliminarProducto(indice){
+            if(confirm("¿Estás seguro de eliminar este producto del carrito?")){
+                carrito.splice(indice, 1);
+                localStorage.setItem("carrito", JSON.stringify(carrito));
+                cargarCarrito();
+                actualizarContadorNav();
+            }
+        }
+
+        function actualizarCantidad(indice, cambio){
+            if(cambio === 1) {
+                carrito[indice].cantidad += 1;
+            } else if(cambio === -1 && carrito[indice].cantidad > 1) {
+                carrito[indice].cantidad -= 1;
+            }
+            carrito[indice].total = carrito[indice].precio * carrito[indice].cantidad;
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            cargarCarrito();
+            actualizarContadorNav();
+        }
+
+        function cargarCarrito(){
+            var contenido = "";
+            var subtotal = 0;
+            
+            if(carrito.length === 0) {
+                contenido = `
+                    <div class="carrito-vacio">
+                        <div class="icono-vacio">🛒</div>
+                        <h3>Tu carrito está vacío</h3>
+                        <p>¡Descubre nuestros increíbles productos gamer!</p>
+                        <a href="productos.html" class="btn-ver-productos">Ver Productos</a>
+                    </div>
+                `;
+                document.getElementById("resumen-pedido").style.display = "none";
+            } else {
+                contenido = `
+                    <div class="tabla-carrito">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Nombre</th>
+                                    <th>Precio Unitario</th>
+                                    <th>Cantidad</th>
+                                    <th>Total</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                `;
+                
+                carrito.forEach((item, index) => {
+                    subtotal += item.total;
+                    contenido += `
+                        <tr>
+                            <td class="celda-imagen">
+                                <img src="${item.imagen}" alt="${item.nombre}" onerror="this.src='img/placeholder.jpg'">
+                            </td>
+                            <td class="celda-nombre">${item.nombre}</td>
+                            <td class="celda-precio">$${item.precio.toLocaleString()} CLP</td>
+                            <td class="celda-cantidad">
+                                <div class="contador-cantidad">
+                                    <button onclick="actualizarCantidad(${index}, -1)" class="btn-cantidad">-</button>
+                                    <span class="numero-cantidad">${item.cantidad}</span>
+                                    <button onclick="actualizarCantidad(${index}, 1)" class="btn-cantidad">+</button>
+                                </div>
+                            </td>
+                            <td class="celda-total">$${item.total.toLocaleString()} CLP</td>
+                            <td class="celda-acciones">
+                                <button onclick="eliminarProducto(${index})" class="btn-eliminar">Eliminar</button>
+                            </td>
+                        </tr>
+                    `;
+                });
+                
+                contenido += `
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+                
+                // Mostrar resumen
+                document.getElementById("resumen-pedido").style.display = "block";
+                
+                // Calcular envío (gratis sobre $100.000)
+                const envio = subtotal > 100000 ? 0 : 5000;
+                const totalFinal = subtotal + envio;
+                
+                // Actualizar resumen
+                document.getElementById("subtotal").textContent = subtotal.toLocaleString();
+                document.getElementById("envio").textContent = envio.toLocaleString();
+                document.getElementById("total-final").textContent = totalFinal.toLocaleString();
+                
+                // Mostrar info de envío gratis
+                if (subtotal > 100000) {
+                    document.getElementById("envio").parentElement.innerHTML = 
+                        '<span>Envío:</span><span class="envio-gratis">¡GRATIS!</span>';
+                }
+            }
+            
+            document.getElementById("detalle-carrito").innerHTML = contenido;
+            actualizarContadorNav();
+        }
+
+        function procesarPago(){
+            if(carrito.length === 0) {
+                alert("Tu carrito está vacío");
+                return;
+            }
+            
+            // Simular proceso de pago
+            const total = carrito.reduce((sum, item) => sum + item.total, 0);
+            alert(`¡Pago procesado exitosamente! 🎮\nTotal: $${total.toLocaleString()} CLP\n\nGracias por tu compra en Level-Up Gamer`);
+            
+            // Vaciar carrito después del pago
+            vaciarCarrito();
+        }
+
+        function seguirComprando(){
+            window.location.href = "productos.html";
+        }
+
+        function vaciarCarrito(){
+            if(carrito.length === 0) {
+                alert("El carrito ya está vacío");
+                return;
+            }
+            
+            if(confirm("¿Estás seguro de vaciar todo el carrito?")) {
+                carrito = [];
+                localStorage.setItem("carrito", JSON.stringify(carrito));
+                cargarCarrito();
+                actualizarContadorNav();
+                alert("Carrito vaciado correctamente");
+            }
+        }
+
+        function actualizarContadorNav(){
+            const totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+            const cartCount = document.getElementById('cart-count');
+            if (cartCount) {
+                cartCount.textContent = totalItems;
+            }
+        }
+
+    </script>
+</body>
+</html>

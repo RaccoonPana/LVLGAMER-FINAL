@@ -1,0 +1,119 @@
+@import url(estilo.css);
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  min-height: 100vh;
+  width: 100%;
+  background: var(--bg-primary);
+}
+
+/* Contenedor principal */
+.contenedor{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 430px;
+  width: 100%;
+  background: #111;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(30, 144, 255, 0.3);
+  border: 2px solid var(--accent-blue);
+  overflow: hidden;
+}
+
+/* Cambiar entre formularios */
+.contenedor .registro{
+  display: none;
+}
+#cambiar-formulario:checked ~ .registro{
+  display: block;
+}
+#cambiar-formulario:checked ~ .inicio-sesion{
+  display: none;
+}
+#cambiar-formulario{
+  display: none;
+}
+
+/* Formulario */
+.contenedor .formulario{
+  padding: 2rem;
+}
+.formulario header{
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--accent-green);
+  font-family: var(--font-header);
+  text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+}
+.formulario input{
+   height: 60px;
+   width: 100%;
+   padding: 0 15px;
+   font-size: 17px;
+   margin-bottom: 1.3rem;
+   border: 1px solid #333;
+   border-radius: 8px;
+   outline: none;
+   background: #222;
+   color: var(--text-primary);
+   font-family: var(--font-body);
+}
+.formulario input:focus{
+   border-color: var(--accent-blue);
+   box-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
+}
+.formulario a{
+  font-size: 16px;
+  color: var(--accent-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.formulario a:hover{
+  color: var(--accent-green);
+  text-decoration: underline;
+}
+
+/* Botón */
+.formulario input.boton{
+  color: var(--bg-primary);
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+  font-size: 1.2rem;
+  font-family: var(--font-header);
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 1.7rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  border: none;
+}
+.formulario input.boton:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(57, 255, 20, 0.4);
+}
+
+/* Texto inferior */
+.texto-registro{
+  font-size: 17px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+.texto-registro label{
+  color: var(--accent-green);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-family: var(--font-header);
+}
+.texto-registro label:hover{
+  color: var(--accent-blue);
+  text-decoration: underline;
+}

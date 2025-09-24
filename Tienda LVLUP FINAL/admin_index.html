@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Level-Up Gamer</title>
+    <link rel="icon" href="../img/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <header>
+        <nav class="sidebar">
+            <h2><img src="../img/logo-levelup.png" alt="Level-Up Gamer" width="150"></h2>
+            <ul>
+                <li><a href="index.html">🏠 Inicio</a></li>
+                <li><a href="productos.html">🎮 Productos</a></li>
+                <li><a href="usuarios.html">👥 Usuarios</a></li>
+                <li><a href="pedidos.html">📦 Pedidos</a></li>
+                <li><a href="reportes.html">📊 Reportes</a></li>
+            </ul>
+            <hr>
+            <ul>
+                <li><a href="index.html">🌐 Sitio Web</a></li>
+                <li><a href="#">🚪 Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenido">
+        <h1>¡Bienvenido, Administrador!</h1>
+        <p>Panel de control de Level-Up Gamer - Gestiona tu tienda desde aquí</p>
+
+        <!-- Estadísticas Rápidas -->
+        <div class="estadisticas">
+            <div class="estadistica-item">
+                <h3>📦 Pedidos Hoy</h3>
+                <p class="numero">12</p>
+            </div>
+            <div class="estadistica-item">
+                <h3>👥 Usuarios Registrados</h3>
+                <p class="numero">1,247</p>
+            </div>
+            <div class="estadistica-item">
+                <h3>💰 Ventas del Mes</h3>
+                <p class="numero">$8.450.000</p>
+            </div>
+            <div class="estadistica-item">
+                <h3>🎮 Productos Activos</h3>
+                <p class="numero">89</p>
+            </div>
+        </div>
+
+        <!-- Acciones Rápidas -->
+        <div class="acciones-rapidas">
+            <h2>Acciones Rápidas</h2>
+            <div class="botones-accion">
+                <button onclick="location.href='productos.html'">➕ Agregar Producto</button>
+                <button onclick="location.href='pedidos.html'">📋 Ver Pedidos</button>
+                <button onclick="location.href='reportes.html'">📊 Generar Reporte</button>
+                <button>📧 Enviar Newsletter</button>
+            </div>
+        </div>
+
+        <!-- Gráfico de ventas (placeholder) -->
+        <div class="grafico-placeholder">
+            <img src="../img/grafico-ventas.jpg" alt="Gráfico de Ventas" width="600">
+            <p>📈 Resumen de ventas últimos 30 días</p>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Registro - Level-Up Gamer</title>
+
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="contenedor-nav">
+                <div class="nav-logo" id="logo">
+                    <img src="img/logo-levelup.png" alt="Level-Up Gamer">
+                    <h1>Level-Up Gamer</h1>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="productos.html" class="nav-link">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="nosotros.html" class="nav-link">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blogs.html" class="nav-link">Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contacto.html" class="nav-link">Contacto</a>
+                    </li>
+                </ul>
+                
+                <div class="nav-btn">
+                    <a href="carrito.html" class="btn-apadrina">Ver Carrito</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="contenedor">
+            <input type="checkbox" id="cambiar-formulario">
+
+            <!-- Login -->
+            <div class="formulario inicio-sesion">
+                <header>🎮 Iniciar Sesión</header>
+                <form action="#">
+                    <input type="text" placeholder="Correo electrónico" required>
+                    <input type="password" placeholder="Contraseña" required>
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                    <input type="button" class="boton" value="Ingresar al Nivel">
+                </form>
+                <div class="texto-registro">
+                    <span>¿Nuevo en Level-Up Gamer?
+                        <label for="cambiar-formulario">Crea tu Cuenta</label>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Registro -->
+            <div class="formulario registro">
+                <header>🚀 Crear Cuenta</header>
+                <form action="#">
+                    <input type="text" placeholder="Correo electrónico" required>
+                    <input type="password" placeholder="Crear contraseña" required>
+                    <input type="password" placeholder="Confirmar contraseña" required>
+                    <input type="button" class="boton" value="Subir de Nivel">
+                </form>
+                <div class="texto-registro">
+                    <span>¿Ya tienes una cuenta?
+                        <label for="cambiar-formulario">Inicia Sesión</label>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Level-Up Gamer - Proyecto DSY1104</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Level-Up Gamer</title>
+
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/contacto.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="contenedor-nav">
+                <div class="nav-logo" id="logo">
+                    <img src="img/logo-levelup.png" alt="Level-Up Gamer">
+                    <h1>Level-Up Gamer</h1>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="productos.html" class="nav-link">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="nosotros.html" class="nav-link">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blogs.html" class="nav-link">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contacto.html" class="nav-link">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="carrito.html" class="nav-link">Carrito</a>
+                    </li>
+                </ul>
+                
+                <div class="nav-btn">
+                    <a href="login_register.html" class="btn-login_register">Login / Registro</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Contacto -->
+        <section class="hero-contacto">
+            <div class="hero-contacto-content">
+                <h1>📞 Contáctanos</h1>
+                <p>Estamos aquí para ayudarte. ¡Hablemos!</p>
+            </div>
+        </section>
+
+        <div class="contacto-container">
+            <!-- Información de Contacto -->
+            <section class="info-contacto">
+                <h2>💬 Nuestros Canales</h2>
+                
+                <div class="canales-contacto">
+                    <div class="canal">
+                        <div class="icono-canal">📧</div>
+                        <h3>Email</h3>
+                        <p>info@levelupgamer.cl</p>
+                        <p>ventas@levelupgamer.cl</p>
+                        <small>Respuesta en 24 horas</small>
+                    </div>
+                    
+                    <div class="canal">
+                        <div class="icono-canal">📱</div>
+                        <h3>WhatsApp</h3>
+                        <p>+56 9 1234 5678</p>
+                        <small>Lunes a Viernes 9:00 - 18:00</small>
+                    </div>
+                    
+                    <div class="canal">
+                        <div class="icono-canal">💬</div>
+                        <h3>Chat Online</h3>
+                        <p>Disponible en horario comercial</p>
+                        <small>Haz clic en el botón de chat</small>
+                    </div>
+                    
+                    <div class="canal">
+                        <div class="icono-canal">🌐</div>
+                        <h3>Redes Sociales</h3>
+                        <p>@LevelUpGamerCL</p>
+                        <small>Síguenos para novedades</small>
+                    </div>
+                </div>
+
+                <!-- Horario de Atención -->
+                <div class="horario-atencion">
+                    <h3>🕒 Horario de Atención</h3>
+                    <ul>
+                        <li><strong>Lunes a Viernes:</strong> 9:00 - 18:00 hrs</li>
+                        <li><strong>Sábados:</strong> 10:00 - 14:00 hrs</li>
+                        <li><strong>Domingos:</strong> Cerrado</li>
+                    </ul>
+                </div>
+
+                <!-- FAQ Rápida -->
+                <div class="faq-rapida">
+                    <h3>❓ Preguntas Frecuentes</h3>
+                    <div class="preguntas">
+                        <details>
+                            <summary>¿Realizan envíos a regiones?</summary>
+                            <p>Sí, realizamos envíos a todo Chile con diferentes opciones de transporte.</p>
+                        </details>
+                        <details>
+                            <summary>¿Tienen garantía en los productos?</summary>
+                            <p>Todos nuestros productos tienen garantía del fabricante y soporte técnico.</p>
+                        </details>
+                        <details>
+                            <summary>¿Aceptan devoluciones?</summary>
+                            <p>Sí, dentro de los 10 días posteriores a la compra, según términos y condiciones.</p>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Formulario de Contacto -->
+            <section class="formulario-contacto">
+                <h2>📝 Envíanos un Mensaje</h2>
+                <form id="formContacto" class="form-contacto">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" required maxlength="100">
+                        <span class="error-msg" id="errorNombre"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico *</label>
+                        <input type="email" id="email" name="email" required maxlength="100">
+                        <span class="error-msg" id="errorEmail"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono (Opcional)</label>
+                        <input type="tel" id="telefono" name="telefono" maxlength="20">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="asunto">Asunto *</label>
+                        <select id="asunto" name="asunto" required>
+                            <option value="">Selecciona un asunto</option>
+                            <option value="consulta">Consulta general</option>
+                            <option value="soporte">Soporte técnico</option>
+                            <option value="ventas">Consulta de ventas</option>
+                            <option value="devolucion">Devolución o garantía</option>
+                            <option value="sugerencia">Sugerencia o feedback</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje *</label>
+                        <textarea id="mensaje" name="mensaje" rows="6" required maxlength="500" 
+                                  placeholder="Describe tu consulta en detalle..."></textarea>
+                        <div class="contador-caracteres">
+                            <span id="contador">0</span>/500 caracteres
+                        </div>
+                        <span class="error-msg" id="errorMensaje"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <span>Deseo recibir novedades y ofertas especiales</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-enviar">🚀 Enviar Mensaje</button>
+                </form>
+            </section>
+        </div>
+
+        <!-- Mapa de Ubicación (Simulado) -->
+        <section class="seccion-mapa">
+            <h2>📍 Donde Estamos</h2>
+            <div class="mapa-placeholder">
+                <div class="mapa-info">
+                    <h3>Level-Up Gamer Chile</h3>
+                    <p>📌 Av. Principal 1234, Santiago</p>
+                    <p>🏢 Edificio Tech, Oficina 501</p>
+                    <p>📞 +56 2 2345 6789</p>
+                </div>
+                <div class="mapa-imagen">
+                    <img src="img/mapa-placeholder.jpg" alt="Ubicación Level-Up Gamer">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Level-Up Gamer - Tu éxito gaming es nuestra prioridad</p>
+    </footer>
+
+    <script src="js/validaciones.js"></script>
+    <script>
+        // Contador de caracteres para el mensaje
+        document.getElementById('mensaje').addEventListener('input', function() {
+            const contador = document.getElementById('contador');
+            contador.textContent = this.value.length;
+            
+            if (this.value.length > 450) {
+                contador.style.color = '#ff4757';
+            } else if (this.value.length > 400) {
+                contador.style.color = '#ffa502';
+            } else {
+                contador.style.color = '#2ed573';
+            }
+        });
+
+        // Validación del formulario
+        document.getElementById('formContacto').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validarFormularioContacto()) {
+                // Simular envío exitoso
+                alert('¡Mensaje enviado con éxito! Te contactaremos dentro de 24 horas. 🎮');
+                this.reset();
+                document.getElementById('contador').textContent = '0';
+            }
+        });
+
+        function validarFormularioContacto() {
+            // Las validaciones detalladas están en validaciones.js
+            return true; // Simulación
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,574 @@
+/* CONTACT STYLES */
+.hero-contacto {
+    background: linear-gradient(135deg, #111, #222);
+    padding: 80px 20px 60px;
+    text-align: center;
+    border-bottom: 3px solid var(--accent-green);
+}
+
+.hero-contacto h1 {
+    color: var(--accent-green);
+    font-family: var(--font-header);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 15px rgba(57, 255, 20, 0.7);
+}
+
+.hero-contacto p {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+}
+
+.contacto-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* Información de Contacto */
+.info-contacto h2 {
+    color: var(--accent-green);
+    font-family: var(--font-header);
+    margin-bottom: 30px;
+}
+
+.canal-contacto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.canal {
+    background: #111;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.canal:hover {
+    border-color: var(--accent-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(30, 144, 255, 0.2);
+}
+
+.icono-canal {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.canal h3 {
+    color: var(--accent-blue);
+    margin-bottom: 10px;
+    font-family: var(--font-header);
+}
+
+.canal p {
+    color: var(--text-primary);
+    margin: 5px 0;
+    font-size: 0.95rem;
+}
+
+.canal small {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+/* Horario de Atención */
+.horario-atencion {
+    background: #111;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    margin-bottom: 30px;
+}
+
+.horario-atencion h3 {
+    color: var(--accent-green);
+    font-family: var(--font-header);
+    margin-bottom: 15px;
+}
+
+.horario-atencion ul {
+    list-style: none;
+    padding: 0;
+}
+
+.horario-atencion li {
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.horario-atencion li:before {
+    content: "🕒";
+    position: absolute;
+    left: 0;
+}
+
+.horario-atencion strong {
+    color: var(--accent-blue);
+}
+
+/* FAQ Rápida */
+.faq-rapida {
+    background: #111;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #333;
+}
+
+.faq-rapida h3 {
+    color: var(--accent-green);
+    font-family: var(--font-header);
+    margin-bottom: 20px;
+}
+
+.preguntas details {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+}
+
+.preguntas summary {
+    color: var(--text-primary);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 0;
+    list-style: none;
+    position: relative;
+}
+
+.preguntas summary::-webkit-details-marker {
+    display: none;
+}
+
+.preguntas summary:after {
+    content: "➕";
+    position: absolute;
+    right: 0;
+    transition: transform 0.3s ease;
+}
+
+.preguntas details[open] summary:after {
+    content: "➖";
+}
+
+.preguntas details p {
+    color: var(--text-secondary);
+    margin-top: 10px;
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+/* Formulario de Contacto */
+.formulario-contacto {
+    background: #111;
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid var(--accent-blue);
+    box-shadow: 0 8px 25px rgba(30, 144, 255, 0.2);
+}
+
+.formulario-contacto h2 {
+    color: var(--accent-green);
+    font-family: var(--font-header);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background: #222;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contador-caracteres {
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 5px;
+}
+
+.error-msg {
+    color: #ff4757;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: none;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.checkbox span {
+    color: var(--text-primary);
+}
+
+.btn-enviar {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-family: var(--font-header);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.btn-enviar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(57, 255, 20, 0.4);
+}
+
+.btn-enviar:active {
+    transform: translateY(0);
+}
+
+/* Mapa de Ubicación */
+.seccion-mapa {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.seccion-mapa h2 {
+    color: var(--accent-green);
+    font-family: var(--font-header);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.mapa-placeholder {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    background: #111;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid var(--accent-blue);
+}
+
+.mapa-info {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mapa-info h3 {
+    color: var(--accent-green);
+    font-family: var(--font-header);
+    margin-bottom: 20px;
+}
+
+.mapa-info p {
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.mapa-imagen {
+    background: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.mapa-imagen img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    opacity: 0.8;
+}
+
+/* Estados de Validación */
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+    border-color: #ff4757;
+    box-shadow: 0 0 5px rgba(255, 71, 87, 0.3);
+}
+
+.form-group.error .error-msg {
+    display: block;
+}
+
+.form-group.success input,
+.form-group.success select,
+.form-group.success textarea {
+    border-color: #2ed573;
+    box-shadow: 0 0 5px rgba(46, 213, 115, 0.3);
+}
+
+/* Loading State */
+.btn-enviar.loading {
+    background: #666;
+    cursor: not-allowed;
+    position: relative;
+}
+
+.btn-enviar.loading:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    right: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Mensajes de Estado */
+.mensaje-exito {
+    background: rgba(46, 213, 115, 0.1);
+    border: 1px solid #2ed573;
+    color: #2ed573;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: none;
+}
+
+.mensaje-error {
+    background: rgba(255, 71, 87, 0.1);
+    border: 1px solid #ff4757;
+    color: #ff4757;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: none;
+}
+
+/* Chat Online Flotante */
+.chat-flotante {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.btn-chat {
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-chat:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .contacto-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .canal-contacto {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-contacto h1 {
+        font-size: 2.2rem;
+    }
+    
+    .mapa-placeholder {
+        grid-template-columns: 1fr;
+    }
+    
+    .mapa-info {
+        text-align: center;
+    }
+    
+    .formulario-contacto {
+        padding: 20px;
+    }
+    
+    .chat-flotante {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .btn-chat {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-contacto {
+        padding: 60px 15px 40px;
+    }
+    
+    .hero-contacto h1 {
+        font-size: 1.8rem;
+    }
+    
+    .contacto-container {
+        padding: 0 15px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 10px 12px;
+    }
+    
+    .btn-enviar {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+/* Animaciones de Entrada */
+.form-group {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.form-group:nth-child(1) { animation-delay: 0.1s; }
+.form-group:nth-child(2) { animation-delay: 0.2s; }
+.form-group:nth-child(3) { animation-delay: 0.3s; }
+.form-group:nth-child(4) { animation-delay: 0.4s; }
+.form-group:nth-child(5) { animation-delay: 0.5s; }
+.form-group:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efectos de Hover Mejorados */
+.canal:hover .icono-canal {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+    border-color: #555;
+}
+
+/* Scroll Suave para el FAQ */
+.preguntas details[open] {
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 200px;
+    }
+}
+
+/* Placeholder Styles */
+::placeholder {
+    color: #666;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #666;
+}
+
+::-ms-input-placeholder {
+    color: #666;
+}
+
+/* Focus Styles para Accesibilidad */
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible {
+    outline: 2px solid var(--accent-green);
+    outline-offset: 2px;
+}
+
+.btn-enviar:focus-visible {
+    outline: 2px solid var(--accent-green);
+    outline-offset: 3px;
+}
