@@ -1,22 +1,9 @@
-/* ======================================================================
-   File: admin.css
-   Purpose: Estilos para el panel de administración (sidebar, cards,
-            tablas, formularios, botones y utilidades de layout).
-   Notes:
-   - Mantiene el look & feel del sitio mediante variables de estilo globales
-     definidas en css/estilo.css (colores, fuentes, etc.).
-   - Estructura por secciones: Menú lateral, Contenido, Tarjetas, Tablas,
-     Formularios, Botones, Utilidades (grid, panel, toolbar) y Responsive.
-   - Clases utilitarias claves: .grid, .grid-1, .grid-2, .grid-3, .panel,
-     .toolbar, .table-wrap, .actions-row.
-   ====================================================================== */
 /* --- Estructura básica --- */
 body {
   margin: 0; 
   display: flex;
   font-family: var(--font-body);
   background: var(--bg-primary);
-  color: var(--text-primary);
 }
 
 /* --- Menú lateral --- */

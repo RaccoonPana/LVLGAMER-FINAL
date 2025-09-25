@@ -1,14 +1,3 @@
-/* ======================================================================
-   File: estilo.css
-   Purpose: Estilos globales del sitio. Define variables (colores, fuentes),
-            reset base, layout general, navbar, carruseles y secciones
-            reutilizables.
-   Notas:
-   - Variables CSS en :root controlan la paleta y tipografías.
-   - Navbar fijo con contenedor central `.contenedor-nav`.
-   - Las páginas específicas extienden desde este archivo.
-   ====================================================================== */
-
 /* --- FUENTES LEVEL-UP GAMER --- */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap');
 
