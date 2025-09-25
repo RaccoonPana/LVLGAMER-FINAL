@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ERS - Level-Up Gamer (IEEE 830)</title>
+  <style>
+    body { font-family: Calibri, Arial, sans-serif; color: #111; line-height: 1.5; }
+    .cover { text-align: center; margin-top: 60px; }
+    h1, h2, h3, h4 { color: #0b3d91; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 22px; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px; }
+    h3 { font-size: 18px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #cbd5e1; padding: 8px; vertical-align: top; }
+    .small { color: #475569; }
+    .toc ol { margin: 0 0 0 20px; }
+    .page-break { page-break-before: always; margin-top: 32px; }
+    .meta { margin: 18px 0; }
+    ul { margin: 0 0 12px 20px; }
+    li { margin: 4px 0; }
+    .note { color: #334155; font-style: italic; }
+    .code { font-family: Consolas, monospace; background: #f8fafc; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="cover">
+    <h1>DUOC UC - Escuela de Informática y Telecomunicaciones</h1>
+    <h2>Especificación de Requisitos de Software (ERS)</h2>
+    <h3>Proyecto: Level-Up Gamer</h3>
+    <div class="meta">
+      <p>Revisión: <strong>99.99</strong></p>
+      <p>Fecha: <strong>2025-09-25</strong></p>
+    </div>
+    <p class="small">Especificación de Requisitos según estándar IEEE 830</p>
+  </div>
+
+  <div class="page-break"></div>
+
+  <h2>Contenido</h2>
+  <div class="toc">
+    <ol>
+      <li>Ficha del documento</li>
+      <li>Introducción
+        <ol>
+          <li>Propósito</li>
+          <li>Ámbito del Sistema</li>
+          <li>Definiciones, Acrónimos y Abreviaturas</li>
+          <li>Referencias</li>
+          <li>Visión General del Documento</li>
+        </ol>
+      </li>
+      <li>Descripción General
+        <ol>
+          <li>Perspectiva del Producto</li>
+          <li>Funciones del Producto</li>
+          <li>Características de los Usuarios</li>
+          <li>Restricciones</li>
+          <li>Suposiciones y Dependencias</li>
+          <li>Requisitos Futuros</li>
+        </ol>
+      </li>
+      <li>Requisitos Específicos
+        <ol>
+          <li>Requisitos comunes de las interfaces
+            <ol>
+              <li>Interfaces de usuario</li>
+              <li>Interfaces de hardware</li>
+              <li>Interfaces de software</li>
+              <li>Interfaces de comunicación</li>
+            </ol>
+          </li>
+          <li>Requisitos funcionales</li>
+          <li>Requisitos no funcionales
+            <ol>
+              <li>Requisitos de rendimiento</li>
+              <li>Seguridad</li>
+              <li>Fiabilidad</li>
+              <li>Disponibilidad</li>
+              <li>Mantenibilidad</li>
+              <li>Portabilidad</li>
+            </ol>
+          </li>
+          <li>Otros Requisitos</li>
+        </ol>
+      </li>
+    </ol>
+  </div>
+
+  <div class="page-break"></div>
+
+  <h2>Ficha del documento</h2>
+  <table>
+    <thead>
+      <tr><th>Fecha</th><th>Revisión</th><th>Autor</th><th>Modificación</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>2025-09-25</td><td>99.99</td><td>Equipo Level-Up Gamer</td><td>ERS complementada (IEEE 830)</td></tr>
+      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    </tbody>
+  </table>
+
+  <p class="page-break"></p>
+  <h3>Documento validado por las partes en fecha:</h3>
+  <table>
+    <tr>
+      <td style="width:50%">
+        <p><strong>Por el cliente</strong></p>
+        <p>[Firma]</p>
+        <p>Sr./Sra. __________________________</p>
+      </td>
+      <td style="width:50%">
+        <p><strong>Por la empresa suministradora</strong></p>
+        <p>[Firma]</p>
+        <p>Sr./Sra. __________________________</p>
+      </td>
+    </tr>
+  </table>
+
+  <div class="page-break"></div>
+
+  <h2>1. Introducción</h2>
+  <p>Esta ERS describe los requisitos del proyecto <strong>Level-Up Gamer</strong>, una tienda web enfocada en productos Gamer, con módulos de catálogo, carrito, blogs y administración básica.</p>
+
+  <h3>1.1. Propósito</h3>
+  <p>El propósito es definir de forma clara, medible y verificable los requisitos del sistema para su construcción, prueba y evaluación. Destinatarios: stakeholders, docentes, equipo de desarrollo y QA.</p>
+
+  <h3>1.2. Ámbito del Sistema</h3>
+  <ul>
+    <li><strong>Nombre:</strong> Level-Up Gamer.</li>
+    <li><strong>Hace:</strong> listar productos por categoría, ver detalles, gestionar carrito (agregar, eliminar, actualizar), autenticación básica, panel de administración, y lectura de blog.</li>
+    <li><strong>No hace:</strong> pasarela de pago real, logística de despacho real, persistencia en servidor.</li>
+    <li><strong>Beneficios/Objetivos:</strong> experiencia de compra simple, catálogo claro, administración básica protegida.</li>
+  </ul>
+
+  <h3>1.3. Definiciones, Acrónimos y Abreviaturas</h3>
+  <ul>
+    <li><strong>ERS:</strong> Especificación de Requisitos de Software.</li>
+    <li><strong>UI:</strong> Interfaz de Usuario.</li>
+    <li><strong>CRUD:</strong> Crear, Leer, Actualizar y Eliminar.</li>
+    <li><strong>SKU:</strong> Identificador único de un producto.</li>
+  </ul>
+
+  <h3>1.4. Referencias</h3>
+  <ul>
+    <li>IEEE Std 830-1998: Recommended Practice for Software Requirements Specifications.</li>
+    <li>Código fuente del proyecto en carpeta “Tienda LVLUP FINAL”.</li>
+  </ul>
+
+  <h3>1.5. Visión General del Documento</h3>
+  <p>El documento incluye la descripción general del producto, los requisitos específicos (funcionales y no funcionales), y las interfaces. Los casos de uso y mockups se pueden adjuntar como anexos.</p>
+
+  <div class="page-break"></div>
+  <h2>2. Descripción General</h2>
+
+  <h3>2.1. Perspectiva del Producto</h3>
+  <p>Aplicación web independiente (front-end) que puede integrarse a futuro con servicios de pago y backend. Los módulos principales son: Catálogo, Carrito, Autenticación, Administración y Blog.</p>
+
+  <h3>2.2. Funciones del Producto</h3>
+  <ul>
+    <li>Navegar por categorías y ver detalle de productos.</li>
+    <li>Gestionar carrito con totales y cálculo de envío en el cliente.</li>
+    <li>Login/Registro básico y guardas de acceso administrativo.</li>
+    <li>Administración: CRUD de productos y usuarios (localStorage).</li>
+    <li>Listar artículos del blog y su vista de detalle.</li>
+  </ul>
+
+  <h3>2.3. Características de los Usuarios</h3>
+  <ul>
+    <li><strong>Cliente:</strong> navega y compra. Conocimientos básicos web.</li>
+    <li><strong>Vendedor:</strong> gestiona catálogo. Conocimientos operativos.</li>
+    <li><strong>Administrador:</strong> acceso a panel y configuración. PC básico y Excel medio.</li>
+  </ul>
+
+  <h3>2.4. Restricciones</h3>
+  <ul>
+    <li>Proyecto académico DUOC UC (lineamientos de evaluación).</li>
+    <li>Front-end estático; persistencia en <span class="code">localStorage</span>.</li>
+    <li>Compatibilidad con navegadores modernos.</li>
+    <li>Sin integración real de pagos ni envíos.</li>
+  </ul>
+
+  <h3>2.5. Suposiciones y Dependencias</h3>
+  <ul>
+    <li>Disponibilidad de hosting estático o ejecución local.</li>
+    <li>CDNs de jQuery y Slick Carousel disponibles.</li>
+  </ul>
+
+  <h3>2.6. Requisitos Futuros</h3>
+  <ul>
+    <li>Integración con pasarelas de pago y backend con BD.</li>
+    <li>Gestión de órdenes y seguimiento de despacho.</li>
+    <li>Panel de reportes (ventas, stock, usuarios).</li>
+  </ul>
+
+  <div class="page-break"></div>
+  <h2>3. Requisitos Específicos</h2>
+
+  <h3>3.1. Requisitos comunes de las interfaces</h3>
+  <h4>3.1.1. Interfaces de usuario</h4>
+  <p>UI web responsiva con menú superior y contenido principal. Estilos en <span class="code">css/estilo.css</span>. Tipografías Orbitron y Roboto.</p>
+
+  <h4>3.1.2. Interfaces de hardware</h4>
+  <p>Operación en PC, tablets y móviles; soporte a pantallas táctiles.</p>
+
+  <h4>3.1.3. Interfaces de software</h4>
+  <ul>
+    <li><span class="code">localStorage</span> para carrito y datos de administración.</li>
+    <li>CDNs: jQuery y Slick Carousel.</li>
+  </ul>
+
+  <h4>3.1.4. Interfaces de comunicación</h4>
+  <p>No aplica por ahora. Futuras integraciones usarán HTTP/HTTPS REST.</p>
+
+  <h3>3.2. Requisitos funcionales</h3>
+  <ul>
+    <li><strong>RF-01</strong> Listar productos por categoría y filtro.</li>
+    <li><strong>RF-02</strong> Ver detalle de producto (imagen, descripción, precio, stock).</li>
+    <li><strong>RF-03</strong> Agregar, remover y actualizar cantidades en el carrito.</li>
+    <li><strong>RF-04</strong> Calcular subtotal, envío y total en vista de carrito.</li>
+    <li><strong>RF-05</strong> Autenticación básica (login/register) con validación mínima.</li>
+    <li><strong>RF-06</strong> Guardia admin: restringe acceso a vistas administrativas.</li>
+    <li><strong>RF-07</strong> CRUD de productos/usuarios en panel admin.</li>
+    <li><strong>RF-08</strong> Listado de blog y visualización de artículo.</li>
+  </ul>
+
+  <h3>3.3. Requisitos no funcionales</h3>
+  <h4>3.3.1. Requisitos de rendimiento</h4>
+  <ul>
+    <li><strong>RNF-Perf-01</strong> 95% de las páginas debe cargar en &lt; 2.5 s en equipo estándar (con caché).</li>
+    <li><strong>RNF-Perf-02</strong> Render de catálogo para 50 productos en &lt; 1 s tras tener datos en memoria.</li>
+  </ul>
+
+  <h4>3.3.2. Seguridad</h4>
+  <ul>
+    <li><strong>RNF-Seg-01</strong> Guardia admin (<span class="code">js/admin_guard.js</span>) redirige a login si no es administrador.</li>
+    <li><strong>RNF-Seg-02</strong> No exponer credenciales sensibles; datos académicos pueden simularse.</li>
+    <li><strong>RNF-Seg-03</strong> Validación básica de inputs en formularios.</li>
+  </ul>
+
+  <h4>3.3.3. Fiabilidad</h4>
+  <ul>
+    <li><strong>RNF-Fia-01</strong> Manejo de errores en lectura/escritura de <span class="code">localStorage</span> con try/catch.</li>
+  </ul>
+
+  <h4>3.3.4. Disponibilidad</h4>
+  <ul>
+    <li><strong>RNF-Disp-01</strong> Sitio estático servible 24/7 en hosting convencional.</li>
+  </ul>
+
+  <h4>3.3.5. Mantenibilidad</h4>
+  <ul>
+    <li><strong>RNF-Mant-01</strong> Separación de responsabilidades por módulos JS y CSS.</li>
+    <li><strong>RNF-Mant-02</strong> Nomenclatura consistente de imágenes y rutas.</li>
+  </ul>
+
+  <h4>3.3.6. Portabilidad</h4>
+  <ul>
+    <li><strong>RNF-Port-01</strong> Compatible con navegadores Chromium/Firefox/Edge actuales.</li>
+    <li><strong>RNF-Port-02</strong> Evitar dependencias de SO; sensibles a mayúsculas/minúsculas en servidores Linux.</li>
+  </ul>
+
+  <h3>3.4. Otros Requisitos</h3>
+  <ul>
+    <li><strong>Accesibilidad:</strong> textos alternativos en imágenes, contraste adecuado, navegación clara.</li>
+    <li><strong>Branding:</strong> favicon unificado <span class="code">img/level-up-icono.jpg</span> en todas las páginas.</li>
+  </ul>
+
+  <p class="note">Nota: Este documento puede exportarse a DOCX desde Microsoft Word usando “Guardar como &gt; Documento de Word”.</p>
+</body>
+</html>

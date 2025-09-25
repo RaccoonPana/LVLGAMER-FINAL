@@ -33,6 +33,74 @@
     'Valparaíso': ['Valparaíso', 'Viña del Mar', 'Quilpué'],
   };
 
+  // Utilidades para generación aleatoria de usuarios (sin admin)
+  function calcularDV(body){
+    let sum = 0, mul = 2;
+    for (let i = body.length - 1; i >= 0; i--) { sum += parseInt(body[i], 10) * mul; mul = mul === 7 ? 2 : mul + 1; }
+    const res = 11 - (sum % 11);
+    return res === 11 ? '0' : res === 10 ? 'K' : String(res);
+  }
+
+  function generarRUN(){
+    // 7 u 8 dígitos + DV
+    const len = Math.random() < 0.5 ? 7 : 8;
+    let body = '';
+    for (let i = 0; i < len; i++) body += Math.floor(Math.random() * 10);
+    return body + calcularDV(body);
+  }
+
+  const NOMBRES = ['Andrés','Valentina','Camila','Benjamín','Javiera','Diego','Catalina','Lucas','Sofía','Matías'];
+  const APELLIDOS = ['González','Muñoz','Rojas','Díaz','Pérez','Soto','Contreras','Silva','Martínez','López'];
+  const DOMINIOS = ['@gmail.com','@duoc.cl','@profesor.duoc.cl'];
+  const TIPOS_NO_ADMIN = ['Cliente','Vendedor'];
+
+  function pick(arr){ return arr[Math.floor(Math.random() * arr.length)]; }
+
+  function seedUsuariosDemo(minCantidad = 5){
+    const existentes = getUsuarios();
+    const emails = new Set(existentes.map(u => (u.correo||'').toLowerCase()));
+    const total = existentes.length;
+    const porCrear = Math.max(0, minCantidad - total);
+    if (porCrear <= 0) return; // ya hay suficientes
+
+    const nuevas = [];
+    for (let i = 0; i < porCrear; i++) {
+      const nombre = pick(NOMBRES);
+      const apellido1 = pick(APELLIDOS);
+      const apellido2 = pick(APELLIDOS);
+      const apellidos = `${apellido1} ${apellido2}`;
+      const base = (nombre + '.' + apellido1 + Math.floor(Math.random()*1000)).toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu,'');
+      let correo = base + pick(DOMINIOS);
+      let intentos = 0;
+      while (emails.has(correo) && intentos < 5) {
+        correo = base + (Math.floor(Math.random()*1000)) + pick(DOMINIOS);
+        intentos++;
+      }
+      emails.add(correo);
+
+      const regionesKeys = Object.keys(regiones);
+      const region = pick(regionesKeys);
+      const comuna = pick(regiones[region]);
+      const tipo = pick(TIPOS_NO_ADMIN);
+
+      nuevas.push({
+        run: generarRUN(),
+        nombre,
+        apellidos,
+        correo,
+        fecha: null,
+        tipo,              // Nunca 'Administrador'
+        role: tipo.toLowerCase(),
+        region,
+        comuna,
+        direccion: `Calle ${Math.floor(Math.random()*900)+100} #${Math.floor(Math.random()*900)+100}`,
+      });
+    }
+
+    const fusion = existentes.concat(nuevas);
+    setUsuarios(fusion);
+  }
+
   function getUsuarios(){
     try {
       const primary = JSON.parse(localStorage.getItem(LS_USERS_PRIMARY)) || [];
@@ -189,6 +257,8 @@
 
   // Init
   document.addEventListener('DOMContentLoaded', function(){
+    // Sembrar usuarios demo si hay pocos (nunca admin)
+    seedUsuariosDemo(5);
     renderTabla();
     cargarRegiones();
   });

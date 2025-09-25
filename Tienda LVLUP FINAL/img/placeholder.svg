@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2b2f3a"/>
+      <stop offset="100%" stop-color="#444b5a"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g)"/>
+  <g fill="#9aa3b2">
+    <circle cx="300" cy="170" r="55" opacity="0.25"/>
+    <rect x="150" y="250" width="300" height="18" rx="9" opacity="0.35"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <text x="300" y="210" font-size="22" fill="#cfd6e2">Imagen no disponible</text>
+    <text x="300" y="240" font-size="14" fill="#aab3c2">Level-Up Gamer</text>
+  </g>
+</svg>

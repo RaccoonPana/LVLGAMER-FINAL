@@ -171,15 +171,35 @@ footer {
 /* --- CARRUSEL HERO --- */
 .single-item {
     width: 100%;
-    height: 500px;
+    /* Mantener relación 16:9 para evitar deformaciones y reescalado excesivo */
+    height: clamp(260px, 56.25vw, 520px); /* 56.25vw = 9/16 de 100vw */
     overflow: hidden;
 }
 
 .single-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 500px;
+    object-fit: contain;
     object-position: center;
+    display: block;
+}
+
+/* Asegurar que cada slide de Slick ocupe todo el alto del carrusel */
+.single-item .slick-slide,
+.single-item .slick-track,
+.single-item .slick-list {
+    height: 100% !important;
+}
+
+.single-item .slick-slide > div,
+.single-item .slick-slide > div > img,
+.single-item .slick-slide > div > picture,
+.single-item .slick-slide > picture > img {
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .single-item { height: clamp(200px, 56.25vw, 380px); }
 }
 
 /* --- CARRUSEL INFORMATIVO --- */

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito - Level-Up Gamer</title>
 
-    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="icon" href="img/level-up-icono.jpg" type="image/jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="css/carrito.css">
@@ -83,7 +83,7 @@
     </main>
 
     <footer>
-        <p>© 2024 Level-Up Gamer - Proyecto DSY1104</p>
+        <p>© 2025 Level-Up Gamer - Proyecto DSY1104</p>
     </footer>
 
     <script>
@@ -141,13 +141,12 @@
                             </thead>
                             <tbody>
                 `;
-                
                 carrito.forEach((item, index) => {
                     subtotal += item.total;
                     contenido += `
                         <tr>
                             <td class="celda-imagen">
-                                <img src="${item.imagen}" alt="${item.nombre}" onerror="this.src='img/placeholder.jpg'">
+                                <img src="${item.imagen}" alt="${item.nombre}" onerror="this.src='img/placeholder.svg'">
                             </td>
                             <td class="celda-nombre">${item.nombre}</td>
                             <td class="celda-precio">$${item.precio.toLocaleString()} CLP</td>

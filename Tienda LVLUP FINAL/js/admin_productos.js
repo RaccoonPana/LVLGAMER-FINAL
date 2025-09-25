@@ -66,8 +66,7 @@
   window.resetFormularioProducto = function(){
     IDX.value = '';
     FORM.reset();
-  };
-
+  }
   window.guardarProducto = function(ev){
     ev.preventDefault();
     if (!validar()) return;
@@ -79,14 +78,13 @@
       id: index >= 0 ? productos[index].id : Date.now(),
       codigo: F.codigo.value.trim(),
       nombre: F.nombre.value.trim(),
-      descripcion: F.descripcion.value.trim(),
+      descripcion: F.descripcion.value.trim() || '',
       precio: Number(F.precio.value),
       stock: Number(F.stock.value),
       stockCritico: F.stockcrit.value === '' ? undefined : Number(F.stockcrit.value),
       categoria: F.categoria.value,
-      imagen: F.imagen.value.trim() || 'img/placeholder.jpg',
+      imagen: F.imagen.value.trim() || 'img/placeholder.svg',
     };
-
     if (index >= 0) {
       productos[index] = { ...productos[index], ...base };
     } else {
