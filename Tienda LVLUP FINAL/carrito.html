@@ -147,7 +147,7 @@
                     contenido += `
                         <tr>
                             <td class="celda-imagen">
-                                <img src="${item.imagen}" alt="${item.nombre}" onerror="this.src='img/placeholder.jpg'">
+                                <img src="${item.imagen}" alt="${item.nombre}" onerror="this.onerror=null;this.src='img/placeholder.svg'">
                             </td>
                             <td class="celda-nombre">${item.nombre}</td>
                             <td class="celda-precio">$${item.precio.toLocaleString()} CLP</td>

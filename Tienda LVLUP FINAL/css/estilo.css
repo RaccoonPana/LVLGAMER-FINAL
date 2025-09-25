@@ -378,3 +378,58 @@ footer {
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(57, 255, 20, 0.4);
 }
+/* --- HOME: PRODUCTOS DESTACADOS (3x3 GRID) --- */
+#productos-destacados {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+#productos-destacados .ficha {
+    background: linear-gradient(135deg, #111, #222);
+    border: 2px solid var(--accent-blue);
+    border-radius: 15px;
+    padding: 16px;
+    box-shadow: 0 8px 25px rgba(30, 144, 255, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+#productos-destacados .ficha:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(30, 144, 255, 0.4);
+    border-color: var(--accent-green);
+}
+#productos-destacados .ficha img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; /* cuadrado */
+    object-fit: contain;  /* ajusta sin recortar */
+    display: block;
+    background: #fff;     /* cuadrado blanco */
+    border-radius: 10px;
+    border: 2px solid #333;
+    padding: 6px;
+}
+#productos-destacados .ficha h3 { color: var(--accent-green); font-family: var(--font-header); font-size: 18px; }
+#productos-destacados .ficha .precio-destacado { color: var(--accent-blue); font-weight: bold; font-family: var(--font-header); }
+#productos-destacados .ficha input[type=\"button\"] {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+    color: var(--bg-primary);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: var(--font-header);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+#productos-destacados .ficha input[type=\"button\"]:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(57, 255, 20, 0.4); }
+@media (max-width: 1024px) { #productos-destacados { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { #productos-destacados { grid-template-columns: 1fr; } }
